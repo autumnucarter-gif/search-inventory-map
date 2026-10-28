@@ -39,13 +39,17 @@ public class SearchInventoryHashMap {
 
                 int iD = Integer.parseInt(tokens[0]);
                 String name = tokens[1];
-                double price = Double.parseDouble(tokens[2])
+                double price = Double.parseDouble(tokens[2]);
+
+               inventory.put(iD, new Product(iD, name, price));
             }
 
+            bufferedReader.close();
 
 
-        } catch (FileNotFoundException e) {
-            System.out.println("Sorry, we ran into an error");
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
 
 
